@@ -2,6 +2,14 @@ package MultiThreadingHW;
 
 import java.io.*;
 
+// Создать три потока, каждый из которых выводит определенную букву(A, B и C) 5 раз, порядок
+//должен быть именно ABСABСABС. Используйте wait/notify/notifyAll.
+// Написать совсем небольшой метод, в котором 3 потока построчно пишут данные в файл (штук по 10 записей, с периодом в 20 мс)
+
+// Написать класс МФУ на котором возможны одновременная печать и сканирование
+//документов, при этом нельзя одновременно печатать два документа или сканировать
+// (при печати в консоль выводится сообщения "отпечатано 1, 2, 3,... страницы", при сканировании то
+//же самое только "отсканировано...", вывод в консоль все также с периодом в 50 мс.)
 public class Main {
 
     private static class MFU {
@@ -30,6 +38,7 @@ public class Main {
 
     private static char currentLetter = 'A';
     static Object monitor = new Object();
+
     public static void main(String[] args) {
 
         //task1();
@@ -68,7 +77,7 @@ public class Main {
             }
         }).start();
     }
-
+    // Написать совсем небольшой метод, в котором 3 потока построчно пишут данные в файл (штук по 10 записей, с периодом в 20 мс)
     private static void task2() {
         Thread t1 = new Thread(new MyThread("12345649887"));
         Thread t2 = new Thread(new MyThread("afdsafsdfasf"));
@@ -84,6 +93,8 @@ public class Main {
         }
     }
 
+    // Создать три потока, каждый из которых выводит определенную букву(A, B и C) 5 раз, порядок
+    //должен быть именно ABСABСABС. Используйте wait/notify/notifyAll.
     private static void task1() {
         new Thread(() -> {
             try {

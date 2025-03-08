@@ -10,6 +10,8 @@ public class Race {
     public Race(Stage... stages) {
         this.stages = new ArrayList<>(Arrays.asList(stages));
     }
+
+    //Победитель только один
     public synchronized void getWinner(Car car){
         if (!isWinnerDetermined){
             System.out.println(car.getName() + " ВЫИГРАЛ ГОНКУ!!!");

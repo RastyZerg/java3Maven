@@ -3,15 +3,13 @@ package MultiThreadingRaceHW;
 import java.util.concurrent.Semaphore;
 
 public class Tunnel extends Stage {
-    private final int carCount;
     private Semaphore smp;
 
 
-    public Tunnel(int carCount) {
-        this.carCount = carCount;
+    public Tunnel(int maxCars) {
         this.length = 80;
         this.description = "Тоннель " + length + " метров";
-        this.smp = new Semaphore(carCount / 2);
+        this.smp = new Semaphore(maxCars); //Семафор для туннеля
     }
     @Override
     public void go(Car c) {
